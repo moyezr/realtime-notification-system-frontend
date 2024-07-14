@@ -37,7 +37,7 @@ const PingBoard = ({ session }: { session: Session | null }) => {
 
   useEffect(() => {
     const ws = new WebSocket(
-      `ws://localhost:8080?id=${session?.user?.id}&name=${session?.user?.name}`
+      `${process.env.NEXT_PUBLIC_SOCKET_URL}?id=${session?.user?.id}&name=${session?.user?.name}`
     );
 
     ws.onopen = () => {
